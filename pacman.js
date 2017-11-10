@@ -63,8 +63,9 @@ function displayStats () {
 function displayMenu () {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
-
-
+  if (powerPellets > 0) {
+    console.log('(p) Power-Pellet');
+  }
   // use a for each loop to iterate through the array and dipslay the contents for all
   ghosts.forEach(function (ghost) {
     console.log('(' + ghost.menu_option + ') Eat ' + ghost.name);
@@ -99,6 +100,14 @@ function dead () {
   }
 }
 
+function eatPowerPellet() {
+  ghosts.forEach(function(ghost){
+    ghost.edible = true
+  });
+  score += 50;
+  powerPellets--
+}
+
 // Process Player's Input
 function processInput (key) {
   switch(key) {
@@ -108,6 +117,14 @@ function processInput (key) {
       break;
     case 'd':
       eatDot();
+      break;
+    case 'p':
+      if (powerPellets > 0) {
+        eatPowerPellet();
+      } else {
+        console.log('\nNo Power Pellets left!');
+      }
+
       break;
     default:
       console.log('\nInvalid Command!');
