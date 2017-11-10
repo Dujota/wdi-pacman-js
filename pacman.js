@@ -133,7 +133,13 @@ function processInput (key) {
       } else {
         console.log('\nNo Power Pellets left!');
       }
-
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+      eatGhost(ghosts.find((ghost) => ghost.menu_option === key));
+      // eat the ghost, by finding the ghost in the array where the key(user input) matches the menu_item, consider case 1-4 for the key value
       break;
     default:
       console.log('\nInvalid Command!');
