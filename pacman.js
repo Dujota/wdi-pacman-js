@@ -57,6 +57,7 @@ function clearScreen() {
 
 function displayStats () {
   console.log('Score: ' + score + '     Lives: ' + lives);
+  console.log('\n\nPower-Pellets: '+powerPellets);
 }
 
 function displayMenu () {
