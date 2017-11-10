@@ -68,7 +68,12 @@ function displayMenu () {
   }
   // use a for each loop to iterate through the array and dipslay the contents for all
   ghosts.forEach(function (ghost) {
-    console.log('(' + ghost.menu_option + ') Eat ' + ghost.name);
+    if (ghost.edible === true) {
+      edibility = '(edible)'
+    } else {
+      edibility = '(inedible)'
+    }
+    console.log('(' + ghost.menu_option + ') Eat ' + ghost.name + ' ' + edibility);
   });
 
   console.log('(q) Quit');
@@ -90,6 +95,10 @@ function eatGhost(ghost) {
   if (ghost.edible === false) {
     console.log('\nYou were rekt by ' + ghost.name + ' Colour: '+ ghost.colour);
     lives--;
+  } else {
+    console.log('\nPacman eats ' + ghost.name + ' who is ' + ghost.character);
+    score += 200
+    ghost.edible = false
   }
   dead();
 }
