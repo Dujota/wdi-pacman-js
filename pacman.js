@@ -54,17 +54,24 @@ function clearScreen() {
   console.log('\x1Bc');
 }
 
-function displayStats() {
+function displayStats () {
   console.log('Score: ' + score + '     Lives: ' + lives);
 }
 
-function displayMenu() {
+function displayMenu () {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
+
+
+  // use a for each loop to iterate through the array and dipslay the contents for all
+  ghosts.forEach(function (ghost) {
+    console.log('(' + ghost.menu_option + ') Eat ' + ghost.name);
+  });
+
   console.log('(q) Quit');
 }
 
-function displayPrompt() {
+function displayPrompt () {
   // process.stdout.write is similar to console.log except it doesn't add a new line after the text
   process.stdout.write('\nWaka Waka :v '); // :v is the Pac-Man emoji.
 }
@@ -78,7 +85,7 @@ function eatDot() {
 
 
 // Process Player's Input
-function processInput(key) {
+function processInput (key) {
   switch(key) {
     case '\u0003': // This makes it so CTRL-C will quit the program
     case 'q':
