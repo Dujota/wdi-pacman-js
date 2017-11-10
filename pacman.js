@@ -83,6 +83,19 @@ function eatDot() {
   score += 10;
 }
 
+function eatGhost(ghost) {
+  if (ghost.edible === false) {
+    console.log('\nYou were rekt by ' + ghost.name + ' Colour: '+ ghost.colour);
+    lives -= 1;
+  }
+  dead();
+}
+
+function dead () {
+  if (lives < 0) {
+    process.exit();
+  }
+}
 
 // Process Player's Input
 function processInput (key) {
