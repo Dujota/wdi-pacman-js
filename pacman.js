@@ -1,6 +1,7 @@
 // Setup initial game stats
 var score = 0;
 var lives = 2;
+var powerPellets = 4;
 
 
 // Define your ghosts here
@@ -86,7 +87,7 @@ function eatDot() {
 function eatGhost(ghost) {
   if (ghost.edible === false) {
     console.log('\nYou were rekt by ' + ghost.name + ' Colour: '+ ghost.colour);
-    lives -= 1;
+    lives--;
   }
   dead();
 }
